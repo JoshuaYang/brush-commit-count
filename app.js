@@ -17,3 +17,5 @@ for (let i = 0; i < count; ++i) {
     execSync(`git add ${file}`);
     execSync(`git commit -m "u"`);
 }
+
+execSync('git push origin master');
