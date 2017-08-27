@@ -1,11 +1,19 @@
 const fs = require('fs');
-const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
 
 const file = 'demo.txt';
 
+let count = process.argv[2];
 
+if (count === undefined) {
+    count = 1;
+} else {
+    count = +count;
+}
 
-fs.writeFileSync(file, Date.now());
+for (let i = 0; i < count; ++i) {
+    fs.writeFileSync(file, Date.now());
 
-exec(`git add ${file}`);
-exec(`git commit -m "u"`);
+    execSync(`git add ${file}`);
+    execSync(`git commit -m "u"`);
+}
