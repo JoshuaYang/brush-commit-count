@@ -11,12 +11,18 @@ if (count === undefined) {
     count = +count;
 }
 
+count = 5;
+
 for (let i = 0; i < count; ++i) {
     fs.writeFileSync(file, Date.now());
 
     execSync(`git add ${file}`);
     execSync(`git commit -m "u"`);
+
+    console.log(`===== commit ${i + 1} times =====`);
 }
+
+console.log('===== pushing =====');
 
 execSync('git push origin master');
 
