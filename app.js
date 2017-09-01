@@ -1,7 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const execSync = require('child_process').execSync;
 
-const file = 'demo.txt';
+const file = path.join(__dirname, 'demo.txt');
 
 let count = process.argv[2];
 
@@ -15,6 +16,8 @@ count = 5;
 
 for (let i = 0; i < count; ++i) {
     fs.writeFileSync(file, Date.now());
+
+    // console.log('==========', file);
 
     execSync(`git add ${file}`);
     execSync(`git commit -m "u"`);
