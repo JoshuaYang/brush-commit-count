@@ -12,8 +12,6 @@ if (count === undefined) {
     count = +count;
 }
 
-count = 5;
-
 for (let i = 0; i < count; ++i) {
     fs.writeFileSync(file, Date.now());
 
