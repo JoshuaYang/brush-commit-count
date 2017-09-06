@@ -7,18 +7,18 @@ const file = path.join(__dirname, 'demo.txt');
 let count = process.argv[2];
 
 if (count === undefined) {
-    count = 1;
+    count = generateNum(5, 10);
 } else {
     count = +count;
 }
 
 for (let i = 0; i < count; ++i) {
-    fs.writeFileSync(file, Date.now());
-
-    // console.log('==========', file);
+    const content = Date.now();
+    
+    fs.writeFileSync(file, content);
 
     execSync(`git add ${file}`);
-    execSync(`git commit -m "u"`);
+    execSync(`git commit -m "${content}"`);
 
     console.log(`===== commit ${i + 1} times =====`);
 }
@@ -28,3 +28,8 @@ console.log('===== pushing =====');
 execSync('git push origin master');
 
 console.log('===== push successfully =====');
+
+
+function generateNum(minNum, maxNum) {
+    return parseInt(Math.random() * (maxNum - minNum) + minNum);
+}
