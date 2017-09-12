@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const execSync = require('child_process').execSync;
+const faker = require('faker');
 
 const file = path.join(__dirname, 'demo.txt');
 
@@ -13,8 +14,8 @@ if (count === undefined) {
 }
 
 for (let i = 0; i < count; ++i) {
-    const content = Date.now();
-    
+    const content = faker.lorem.sentence();
+
     fs.writeFileSync(file, content);
 
     execSync(`git add ${file}`);
