@@ -8,7 +8,7 @@ const file = path.join(__dirname, 'demo.txt');
 let count = process.argv[2];
 
 if (count === undefined) {
-    count = generateNum(5, 10);
+    count = generateNum(7, 13);
 } else {
     count = +count;
 }
