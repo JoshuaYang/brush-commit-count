@@ -11,6 +11,8 @@ function generateNum(minNum, maxNum) {
 }
 
 function autoCommitAndPush() {
+  execSync(`git --git-dir=${__dirname}/.git --work-tree=${__dirname} pull`);
+
   let count = generateNum(7, 13);
 
   for (let i = 0; i < count; ++i) {
