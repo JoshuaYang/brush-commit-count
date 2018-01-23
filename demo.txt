@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Cupiditate asperiores ullam praesentium deserunt numquam quibusdam.
+=======
+Consequatur deserunt sit similique facilis.
+>>>>>>> 88eb8aa9066b55fabff14df04bb20a00c8022801
