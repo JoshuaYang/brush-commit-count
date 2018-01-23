@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const execSync = require('child_process').execSync;
 const faker = require('faker');
-const CronJob = require('cron').CronJob;
 
 const file = path.join(__dirname, 'demo.txt');
 
@@ -27,15 +26,4 @@ function autoCommitAndPush() {
   execSync(`git --git-dir=${__dirname}/.git --work-tree=${__dirname} push origin master`);
 }
 
-
-
 autoCommitAndPush();
-
-// const job = new CronJob({
-//   cronTime: '0 0 0 * * *',
-//   onTick: autoCommitAndPush,
-// });
-//
-// job.start();
-
-// console.log('===== start auto commit & push to gitbub =====');
